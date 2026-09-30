@@ -1,0 +1,6 @@
+{
+  "name": "STRIVE FITNESS - Train Hard Live Strong",
+  "description": "Premium fitness club offering strength training, HIIT, yoga, nutrition coaching, and elite trainers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+  
+  h1, h2, h3, .font-heading {
+    font-family: 'Syne', 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* Custom Metallic Liquid & Glass Effects */
+@keyframes liquidFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes metallicShimmer {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  50%, 100% {
+    transform: translateX(200%) skewX(-20deg);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(206, 247, 46, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(206, 247, 46, 0.7);
+  }
+}
+
+.animate-liquid {
+  background-size: 200% 200%;
+  animation: liquidFlow 4s ease infinite;
+}
+
+.animate-float {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Liquid Metal Button Effect */
+.btn-liquid-metal {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #d4f83c 0%, #b8e622 35%, #ecff78 50%, #b8e622 65%, #d4f83c 100%);
+  background-size: 250% 250%;
+  animation: liquidFlow 5s ease infinite;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-liquid-metal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translateX(-150%) skewX(-25deg);
+  pointer-events: none;
+}
+
+.btn-liquid-metal:hover::before {
+  animation: metallicShimmer 1.5s infinite;
+}
+
+.btn-liquid-metal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px -4px rgba(212, 248, 60, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.4) inset;
+}
+
+.btn-liquid-metal-dark {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #18191d 0%, #2a2d34 30%, #3d424e 50%, #2a2d34 70%, #18191d 100%);
+  background-size: 250% 250%;
+  animation: liquidFlow 6s ease infinite;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-liquid-metal-dark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translateX(-150%) skewX(-25deg);
+  pointer-events: none;
+}
+
+.btn-liquid-metal-dark:hover::before {
+  animation: metallicShimmer 1.5s infinite;
+}
+
+.btn-liquid-metal-dark:hover {
+  transform: translateY(-2px);
+  border-color: rgba(206, 247, 46, 0.5);
+  box-shadow: 0 8px 25px -4px rgba(0, 0, 0, 0.6), 0 0 15px rgba(206, 247, 46, 0.2);
+}
+
+/* 3D Text Flip Container */
+.flip-char-container {
+  display: inline-block;
+  perspective: 1000px;
+}
+
+.flip-char {
+  display: inline-block;
+  transform-origin: 50% 50%;
+  backface-visibility: hidden;
+  transition: transform 0.4s ease, color 0.3s ease;
+}
+
+.flip-char-container:hover .flip-char {
+  transform: rotateX(360deg);
+}
+
+/* Card Hover Micro-interactions */
+.strive-card-hover {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+}
+
+.strive-card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08), 0 10px 15px -5px rgba(0, 0, 0, 0.04);
+}
